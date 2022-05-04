@@ -10,41 +10,49 @@ public partial class Form1 : Form
         InitializeComponent();
     }
 
-    private async void BtnSearch_Click(object sender, EventArgs e)
+    private void BtnSearch_Click(object sender, EventArgs e)
     {
-        RtbWorkingArea.SelectionStart = 0;
-        RtbWorkingArea.SelectAll();
-        RtbWorkingArea.SelectionBackColor = Color.White;
-        RtbWorkingArea.SelectionColor = Color.Black;
-        if (string.IsNullOrWhiteSpace(TbSearch.Text))
-        {
-            return;
-        }
-        string[] _words = TbSearch.Text.Split(new char[] { '.', ';', ':', ',' });
-        LblWait.Text = "Proszę czekać, aplikacja wykonuje zadanie.";
-        await Task.Delay(1);
-        foreach (string word in _words)
-        {
-            int startIndex = 0;
-            while (startIndex < RtbWorkingArea.TextLength)
-            {
-                string pattern = @"(\W|^)" + word + @"(\W|$)";
-                Regex rgx = new(pattern, RegexOptions.IgnoreCase);
-                MatchCollection matches = rgx.Matches(RtbWorkingArea.Text);
-                foreach (Match match in matches)
-                {
-                    RtbWorkingArea.SelectionStart = match.Index;
-                    RtbWorkingArea.SelectionLength = match.Length;
-                    RtbWorkingArea.SelectionBackColor = Color.Purple;
-                    RtbWorkingArea.SelectionColor = Color.White;
-                }
-                startIndex += word.Length;
-            
 
-            }
-        }
-        LblWait.Text = string.Empty;
-        
+        RtbWorkingArea.Invoke((MethodInvoker)delegate
+          {
+              RtbWorkingArea.SelectionStart = 0;
+              RtbWorkingArea.SelectAll();
+              RtbWorkingArea.SelectionBackColor = Color.White;
+              RtbWorkingArea.SelectionColor = Color.Black;
+
+              if (string.IsNullOrWhiteSpace(TbSearch.Text))
+              {
+                  return;
+              }
+              string[] _words = TbSearch.Text.Split(new char[] { '.', ';', ':', ',' });
+              LblWait.Invoke((MethodInvoker)async delegate
+               {
+           await Task.FromResult(LblWait.Text = "Proszę czekać, aplikacja wykonuje zadanie.");
+       });
+
+              foreach (string _word in _words)
+              {
+                  if (string.IsNullOrWhiteSpace(_word))
+                  {
+                      continue;
+                  }
+                  string _pattern = @"(\W|^)" + _word + @"(\W|$)";
+                  Regex _regex = new Regex(_pattern, RegexOptions.IgnoreCase);
+                  MatchCollection _matches = _regex.Matches(RtbWorkingArea.Text);
+                  foreach (Match _match in _matches)
+                  {
+                      RtbWorkingArea.Invoke((MethodInvoker)delegate
+                       {
+                   RtbWorkingArea.SelectionStart = _match.Index;
+                   RtbWorkingArea.SelectionLength = _match.Length;
+                   RtbWorkingArea.SelectionBackColor = Color.Purple;
+                   RtbWorkingArea.SelectionColor = Color.White;
+               });
+                  }
+              }
+
+              LblWait.Text = string.Empty;
+          });
     }
 
 
