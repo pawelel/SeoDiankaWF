@@ -10,7 +10,7 @@ public partial class Form1 : Form
         InitializeComponent();
     }
 
-    private void BtnSearch_Click(object sender, EventArgs e)
+    private async void BtnSearch_Click(object sender, EventArgs e)
     {
         RtbWorkingArea.SelectionStart = 0;
         RtbWorkingArea.SelectAll();
@@ -21,7 +21,8 @@ public partial class Form1 : Form
             return;
         }
         string[] _words = TbSearch.Text.Split(new char[] { '.', ';', ':', ',' });
-       
+        LblWait.Text = "Proszę czekać, aplikacja wykonuje zadanie.";
+        await Task.Delay(1);
         foreach (string word in _words)
         {
             int startIndex = 0;
@@ -38,7 +39,7 @@ public partial class Form1 : Form
                     RtbWorkingArea.SelectionColor = Color.White;
                 }
                 startIndex += word.Length;
-            LblWait.Text = "Proszę czekać, aplikacja wykonuje zadanie.";
+            
 
             }
         }
