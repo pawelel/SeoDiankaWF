@@ -40,6 +40,13 @@ partial class Form1
             this.LblWait = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LblCountChars = new System.Windows.Forms.Label();
+            this.LvSentence = new System.Windows.Forms.ListView();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblCountWords = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RtbWorkingArea
@@ -48,7 +55,7 @@ partial class Form1
             this.RtbWorkingArea.Location = new System.Drawing.Point(12, 89);
             this.RtbWorkingArea.MaxLength = 6000;
             this.RtbWorkingArea.Name = "RtbWorkingArea";
-            this.RtbWorkingArea.Size = new System.Drawing.Size(625, 630);
+            this.RtbWorkingArea.Size = new System.Drawing.Size(590, 630);
             this.RtbWorkingArea.TabIndex = 0;
             this.RtbWorkingArea.Text = "";
             this.RtbWorkingArea.TextChanged += new System.EventHandler(this.RtbWorkingArea_TextChanged);
@@ -72,13 +79,13 @@ partial class Form1
             this.columnHeader2,
             this.columnHeader3});
             this.LvStatistics.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LvStatistics.Location = new System.Drawing.Point(643, 89);
+            this.LvStatistics.FullRowSelect = true;
+            this.LvStatistics.Location = new System.Drawing.Point(608, 89);
             this.LvStatistics.Name = "LvStatistics";
-            this.LvStatistics.Size = new System.Drawing.Size(478, 630);
+            this.LvStatistics.Size = new System.Drawing.Size(377, 630);
             this.LvStatistics.TabIndex = 3;
             this.LvStatistics.UseCompatibleStateImageBehavior = false;
             this.LvStatistics.View = System.Windows.Forms.View.Details;
-            this.LvStatistics.SelectedIndexChanged += new System.EventHandler(this.LvStatistics_SelectedIndexChanged);
             this.LvStatistics.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LvStatistics_MouseClick);
             // 
             // columnHeader1
@@ -88,13 +95,13 @@ partial class Form1
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Występowanie";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.Text = "Liczba";
+            this.columnHeader2.Width = 70;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Procentowo";
-            this.columnHeader3.Width = 150;
+            this.columnHeader3.Text = "Procent";
+            this.columnHeader3.Width = 80;
             // 
             // TbSearch
             // 
@@ -123,7 +130,7 @@ partial class Form1
             this.BtnClearAll.BackColor = System.Drawing.Color.Black;
             this.BtnClearAll.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnClearAll.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnClearAll.Location = new System.Drawing.Point(928, 725);
+            this.BtnClearAll.Location = new System.Drawing.Point(1021, 725);
             this.BtnClearAll.Name = "BtnClearAll";
             this.BtnClearAll.Size = new System.Drawing.Size(193, 61);
             this.BtnClearAll.TabIndex = 6;
@@ -159,11 +166,71 @@ partial class Form1
             this.LblCountChars.Size = new System.Drawing.Size(0, 25);
             this.LblCountChars.TabIndex = 9;
             // 
+            // LvSentence
+            // 
+            this.LvSentence.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.LvSentence.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LvSentence.FullRowSelect = true;
+            this.LvSentence.Location = new System.Drawing.Point(991, 89);
+            this.LvSentence.Name = "LvSentence";
+            this.LvSentence.Size = new System.Drawing.Size(279, 630);
+            this.LvSentence.TabIndex = 10;
+            this.LvSentence.UseCompatibleStateImageBehavior = false;
+            this.LvSentence.View = System.Windows.Forms.View.Details;
+            this.LvSentence.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.LvSentence_ColumnClick);
+            this.LvSentence.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LvSentence_MouseClick);
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Zdanie";
+            this.columnHeader7.Width = 0;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Indeks";
+            this.columnHeader4.Width = 80;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "L. Wyrazów";
+            this.columnHeader5.Width = 110;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Procent";
+            this.columnHeader6.Width = 80;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(315, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 25);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Zdań:";
+            // 
+            // LblCountWords
+            // 
+            this.LblCountWords.AutoSize = true;
+            this.LblCountWords.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblCountWords.Location = new System.Drawing.Point(421, 46);
+            this.LblCountWords.Name = "LblCountWords";
+            this.LblCountWords.Size = new System.Drawing.Size(0, 25);
+            this.LblCountWords.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 798);
+            this.ClientSize = new System.Drawing.Size(1282, 798);
+            this.Controls.Add(this.LblCountWords);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LvSentence);
             this.Controls.Add(this.LblCountChars);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LblWait);
@@ -194,4 +261,11 @@ partial class Form1
     private Label LblWait;
     private Label label1;
     private Label LblCountChars;
+    private ListView LvSentence;
+    private ColumnHeader columnHeader4;
+    private ColumnHeader columnHeader5;
+    private Label label2;
+    private Label LblCountWords;
+    private ColumnHeader columnHeader6;
+    private ColumnHeader columnHeader7;
 }
