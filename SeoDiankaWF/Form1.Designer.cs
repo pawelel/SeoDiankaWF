@@ -74,11 +74,13 @@ partial class Form1
             // 
             // LvStatistics
             // 
+            this.LvStatistics.BackColor = System.Drawing.Color.Black;
             this.LvStatistics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
             this.LvStatistics.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LvStatistics.ForeColor = System.Drawing.Color.White;
             this.LvStatistics.FullRowSelect = true;
             this.LvStatistics.Location = new System.Drawing.Point(608, 89);
             this.LvStatistics.Name = "LvStatistics";
@@ -86,20 +88,24 @@ partial class Form1
             this.LvStatistics.TabIndex = 3;
             this.LvStatistics.UseCompatibleStateImageBehavior = false;
             this.LvStatistics.View = System.Windows.Forms.View.Details;
+            this.LvStatistics.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.LvStatistics_ColumnClick);
             this.LvStatistics.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LvStatistics_MouseClick);
             // 
             // columnHeader1
             // 
+            this.columnHeader1.Tag = "Text";
             this.columnHeader1.Text = "Słowo";
             this.columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
+            this.columnHeader2.Tag = "Numeric";
             this.columnHeader2.Text = "Liczba";
             this.columnHeader2.Width = 70;
             // 
             // columnHeader3
             // 
+            this.columnHeader3.Tag = "Numeric";
             this.columnHeader3.Text = "Procent";
             this.columnHeader3.Width = 80;
             // 
@@ -168,12 +174,14 @@ partial class Form1
             // 
             // LvSentence
             // 
+            this.LvSentence.BackColor = System.Drawing.Color.Black;
             this.LvSentence.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
             this.LvSentence.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LvSentence.ForeColor = System.Drawing.Color.White;
             this.LvSentence.FullRowSelect = true;
             this.LvSentence.Location = new System.Drawing.Point(991, 89);
             this.LvSentence.Name = "LvSentence";
@@ -186,21 +194,25 @@ partial class Form1
             // 
             // columnHeader7
             // 
+            this.columnHeader7.Tag = "Text";
             this.columnHeader7.Text = "Zdanie";
             this.columnHeader7.Width = 0;
             // 
             // columnHeader4
             // 
+            this.columnHeader4.Tag = "Numeric";
             this.columnHeader4.Text = "Indeks";
             this.columnHeader4.Width = 80;
             // 
             // columnHeader5
             // 
+            this.columnHeader5.Tag = "Numeric";
             this.columnHeader5.Text = "L. Wyrazów";
             this.columnHeader5.Width = 110;
             // 
             // columnHeader6
             // 
+            this.columnHeader6.Tag = "Numeric";
             this.columnHeader6.Text = "Procent";
             this.columnHeader6.Width = 80;
             // 
@@ -241,6 +253,7 @@ partial class Form1
             this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.RtbWorkingArea);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seo Dianka";
             this.ResumeLayout(false);
             this.PerformLayout();

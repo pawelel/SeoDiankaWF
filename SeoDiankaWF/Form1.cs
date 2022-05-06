@@ -1,15 +1,27 @@
 using System.Text.RegularExpressions;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using static System.Net.Mime.MediaTypeNames;
 
 namespace SeoDiankaWF;
 
 public partial class Form1 : Form
 {
+    private readonly ListViewColumnSorter _lvwColumnSorter;
     public Form1()
     {
         InitializeComponent();
+        // Create an instance of a ListView column sorter and assign it
+        // to the ListView control.
+        _lvwColumnSorter = new ListViewColumnSorter();
+        LvSentence.ListViewItemSorter = _lvwColumnSorter;
+        LvStatistics.ListViewItemSorter = _lvwColumnSorter;
     }
 
     private void BtnSearch_Click(object sender, EventArgs e)
@@ -39,7 +51,7 @@ public partial class Form1 : Form
                       continue;
                   }
                   string _pattern = @"(\W|^)" + _word + @"(\W|$)";
-                  Regex _regex = new Regex(_pattern, RegexOptions.IgnoreCase);
+                  Regex _regex = new(_pattern, RegexOptions.IgnoreCase);
                   MatchCollection _matches = _regex.Matches(RtbWorkingArea.Text);
                   foreach (Match _match in _matches)
                   {
@@ -115,19 +127,30 @@ public partial class Form1 : Form
     private static List<Tuple<string, int, int, double>> GetSentenceCountList(string text)
     {
         List<Tuple<string, int, int, double>> sentenceCountList = new();
-        List<string> words = new();
+
+        // count all words int text ignore case
+        List<string> words = WordList(text);
+        int wordCount = words.Count;
+        // split text to sentences
         List<string> sentences = SentenceList(text);
-        foreach (string sentence in sentences)
+        int sentenceCount = sentences.Count;
+        // count words in each sentence
+        for (int i = 0; i < sentences.Count; i++)
         {
-            words = WordList(sentence);
-            int sentenceCount = words.Count;
-            int sentenceCountInAllWords = 0;
-            foreach (string word in words)
+            int sentenceWordCount = 0;
+     
+            foreach (string word in WordList(sentences[i]))
             {
-                sentenceCountInAllWords += WordList(text).Count(x => x == word);
+                if (string.IsNullOrWhiteSpace(word))
+                {
+                    continue;
+                }
+                sentenceWordCount++;
             }
-            double sentenceCountPercentage = Math.Round((double)words.Count/ sentenceCountInAllWords * 100,2);
-            sentenceCountList.Add(new(sentence, sentences.IndexOf(sentence), sentenceCount, sentenceCountPercentage));
+            // count sentence percentage in all words
+            double sentencePercentage = Math.Round((double)sentenceWordCount / wordCount * 100,2);
+            sentenceCountList.Add(new(sentences[i], i, sentenceWordCount, sentencePercentage));
+            sentenceCount++;
         }
         return sentenceCountList;
     }
@@ -183,6 +206,57 @@ public partial class Form1 : Form
 
     private void LvSentence_ColumnClick(object sender, ColumnClickEventArgs e)
     {
+        // Determine if clicked column is already the column that is being sorted.
+        if (e.Column == _lvwColumnSorter.SortColumn)
+        {
+            // Reverse the current sort direction for this column.
+            if (_lvwColumnSorter.Order == SortOrder.Ascending)
+            {
+                _lvwColumnSorter.Order = SortOrder.Descending;
+            }
+            else
+            {
+                _lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+        }
+        else
+        {
+            // Set the column number that is to be sorted; default to ascending.
+            _lvwColumnSorter.SortColumn = e.Column;
+            _lvwColumnSorter.Order = SortOrder.Ascending;
+        }
 
+        // Perform the sort with these new sort options.
+        this.LvSentence.Sort();
     }
+
+    private void LvStatistics_ColumnClick(object sender, ColumnClickEventArgs e)
+    {
+        // Determine if clicked column is already the column that is being sorted.
+        if (e.Column == _lvwColumnSorter.SortColumn)
+        {
+            // Reverse the current sort direction for this column.
+            if (_lvwColumnSorter.Order == SortOrder.Ascending)
+            {
+                _lvwColumnSorter.Order = SortOrder.Descending;
+            }
+            else
+            {
+                _lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+        }
+        else
+        {
+            // Set the column number that is to be sorted; default to ascending.
+            _lvwColumnSorter.SortColumn = e.Column;
+            _lvwColumnSorter.Order = SortOrder.Ascending;
+        }
+
+        // Perform the sort with these new sort options.
+        LvStatistics.Sort();
+    }
+
+
+   
+    
 }
