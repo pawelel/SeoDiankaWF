@@ -28,6 +28,7 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.RtbWorkingArea = new System.Windows.Forms.RichTextBox();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.LvStatistics = new System.Windows.Forms.ListView();
@@ -252,6 +253,7 @@ partial class Form1
             this.Controls.Add(this.LvStatistics);
             this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.RtbWorkingArea);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seo Dianka";
