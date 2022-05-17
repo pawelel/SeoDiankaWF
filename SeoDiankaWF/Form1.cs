@@ -70,7 +70,7 @@ public partial class Form1 : Form
     }
 
 
-    private void BtnCount_Click(object sender, EventArgs e)
+    private void TableFill()
     {
         LvStatistics.Items.Clear();
         LvSentence.Items.Clear();
@@ -161,15 +161,18 @@ public partial class Form1 : Form
     {
         List<string> words = WordList(text);
         List<(string, int, double)> tuple = new();
+      
         foreach (string word in words)
         {
             int count = words.Count(w => w.Equals(word, StringComparison.InvariantCultureIgnoreCase));
+        
             double percent = Math.Round((double)count * 100 / words.Count, 2);
             if (!tuple.Any(p => p.Item1.Equals(word, StringComparison.InvariantCultureIgnoreCase)))
             {
                 tuple.Add((word, count, percent));
             }
         }
+        
         return tuple.OrderByDescending(p => p.Item2).ToList();
     }
     private List<(string, int, double)> GetWordCountList()
@@ -189,6 +192,7 @@ public partial class Form1 : Form
         LvStatistics.Items.Clear();
         RtbWorkingArea.Text = string.Empty;
         LvSentence.Items.Clear();
+        LblUnique.Text = string.Empty;
     }
 
     private void RtbWorkingArea_TextChanged(object sender, EventArgs e)
@@ -196,6 +200,8 @@ public partial class Form1 : Form
         RtbWorkingArea.SelectionFont = new Font(RtbWorkingArea.SelectionFont.FontFamily, 14.0F);
         LblCountChars.Text = RtbWorkingArea.Text.Length.ToString();
         LblCountWords.Text = SentenceList(RtbWorkingArea.Text).Count.ToString();
+        LblUnique.Text = DistinctStringCount(RtbWorkingArea.Text).Count.ToString();
+        TableFill();
     }
 
     private void LvSentence_MouseClick(object sender, MouseEventArgs e)

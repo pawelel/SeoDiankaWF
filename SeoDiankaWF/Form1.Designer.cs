@@ -36,7 +36,6 @@ partial class Form1
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.TbSearch = new System.Windows.Forms.TextBox();
-            this.BtnCount = new System.Windows.Forms.Button();
             this.BtnClearAll = new System.Windows.Forms.Button();
             this.LblWait = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@ partial class Form1
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.label2 = new System.Windows.Forms.Label();
             this.LblCountWords = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblUnique = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RtbWorkingArea
@@ -85,7 +86,7 @@ partial class Form1
             this.LvStatistics.FullRowSelect = true;
             this.LvStatistics.Location = new System.Drawing.Point(608, 89);
             this.LvStatistics.Name = "LvStatistics";
-            this.LvStatistics.Size = new System.Drawing.Size(377, 630);
+            this.LvStatistics.Size = new System.Drawing.Size(369, 630);
             this.LvStatistics.TabIndex = 3;
             this.LvStatistics.UseCompatibleStateImageBehavior = false;
             this.LvStatistics.View = System.Windows.Forms.View.Details;
@@ -118,26 +119,12 @@ partial class Form1
             this.TbSearch.Size = new System.Drawing.Size(222, 33);
             this.TbSearch.TabIndex = 4;
             // 
-            // BtnCount
-            // 
-            this.BtnCount.BackColor = System.Drawing.Color.DodgerBlue;
-            this.BtnCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnCount.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnCount.Location = new System.Drawing.Point(625, 17);
-            this.BtnCount.Name = "BtnCount";
-            this.BtnCount.Size = new System.Drawing.Size(124, 39);
-            this.BtnCount.TabIndex = 5;
-            this.BtnCount.Text = "Licz Słowa";
-            this.BtnCount.UseVisualStyleBackColor = false;
-            this.BtnCount.Click += new System.EventHandler(this.BtnCount_Click);
-            // 
             // BtnClearAll
             // 
             this.BtnClearAll.BackColor = System.Drawing.Color.Black;
             this.BtnClearAll.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnClearAll.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.BtnClearAll.Location = new System.Drawing.Point(1021, 725);
+            this.BtnClearAll.Location = new System.Drawing.Point(1088, 725);
             this.BtnClearAll.Name = "BtnClearAll";
             this.BtnClearAll.Size = new System.Drawing.Size(193, 61);
             this.BtnClearAll.TabIndex = 6;
@@ -186,7 +173,7 @@ partial class Form1
             this.LvSentence.FullRowSelect = true;
             this.LvSentence.Location = new System.Drawing.Point(991, 89);
             this.LvSentence.Name = "LvSentence";
-            this.LvSentence.Size = new System.Drawing.Size(279, 630);
+            this.LvSentence.Size = new System.Drawing.Size(290, 630);
             this.LvSentence.TabIndex = 10;
             this.LvSentence.UseCompatibleStateImageBehavior = false;
             this.LvSentence.View = System.Windows.Forms.View.Details;
@@ -236,11 +223,32 @@ partial class Form1
             this.LblCountWords.Size = new System.Drawing.Size(0, 25);
             this.LblCountWords.TabIndex = 12;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(608, 725);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 25);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Unikatów:";
+            // 
+            // LblUnique
+            // 
+            this.LblUnique.AutoSize = true;
+            this.LblUnique.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblUnique.Location = new System.Drawing.Point(717, 725);
+            this.LblUnique.Name = "LblUnique";
+            this.LblUnique.Size = new System.Drawing.Size(0, 25);
+            this.LblUnique.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1282, 798);
+            this.ClientSize = new System.Drawing.Size(1293, 798);
+            this.Controls.Add(this.LblUnique);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.LblCountWords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LvSentence);
@@ -248,7 +256,6 @@ partial class Form1
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LblWait);
             this.Controls.Add(this.BtnClearAll);
-            this.Controls.Add(this.BtnCount);
             this.Controls.Add(this.TbSearch);
             this.Controls.Add(this.LvStatistics);
             this.Controls.Add(this.BtnSearch);
@@ -270,7 +277,6 @@ partial class Form1
     private ColumnHeader columnHeader1;
     private ColumnHeader columnHeader2;
     private TextBox TbSearch;
-    private Button BtnCount;
     private Button BtnClearAll;
     private ColumnHeader columnHeader3;
     private Label LblWait;
@@ -283,4 +289,6 @@ partial class Form1
     private Label LblCountWords;
     private ColumnHeader columnHeader6;
     private ColumnHeader columnHeader7;
+    private Label label3;
+    private Label LblUnique;
 }
