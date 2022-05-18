@@ -105,23 +105,18 @@ public partial class Form1 : Form
 
     private static List<string> SentenceList(string text)
     {
-        string[] source = Regex.Split(text, @"(?<=[\?|\!|\.\.\.|\.])", RegexOptions.IgnorePatternWhitespace);
-        List<string> sentences = new();
-        foreach (string sentence in source)
+        var pattern = @"(?<=\W|^)[^\.]*?(?=\.|\?|\!|$)";
+        var sentences = Regex.Matches(text, pattern, RegexOptions.IgnorePatternWhitespace);
+        List<string> sentencesList = new();
+        foreach (Match sentence in sentences)
         {
-            if (string.IsNullOrWhiteSpace(sentence))
+            if (string.IsNullOrWhiteSpace(sentence.Value))
             {
                 continue;
             }
-           
-            // check if sentence contains letters or numbers
-            if (!Regex.IsMatch(sentence, @"^[a-zA-Z0-9]+(\?|\!|\.\.\.|\.)$"))
-            {
-                var sentenceTrimmed = sentence.Trim();
-                sentences.Add(sentenceTrimmed);
-            }
+            sentencesList.Add(sentence.Value);
         }
-        return sentences;
+        return sentencesList;
     }
     // get sentence, sentence index, count words in sentence, count sentence percentage in all words
     private static List<Tuple<string, int, int, double>> GetSentenceCountList(string text)
