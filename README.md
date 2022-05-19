@@ -4,6 +4,6 @@
 * Aplikacja tworzy listę unikatowych słów
 * Możesz wybrać zdanie lub słowo i znaleźć je w tekscie
 * Możliwe jest również wyszukiwanie kilku wyrazów jednocześnie (oddzielając je przecinkami)
-* Przydaje się tam, gdzie MS Word ignoruje słowa, bo takie istnieją (np. łózka zamiast łóżka)
+* Przydaje się tam, gdzie MS Word ignoruje słowa, bo takie istnieją (np. łózka - łóżka, tez - też, miedzy - między)
 ![image](https://user-images.githubusercontent.com/14290787/169388378-ccfc78cb-57c2-4bcf-9eb1-ee3fd368af26.png)
 
