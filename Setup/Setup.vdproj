@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_344F3DC1BE074C98A0717DA3CCBD346B"
+        "MsmKey" = "8:_3199FA33525C4984AE5DE9E22065DA2E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_36A32A19E1B142AFA9311E9630720375"
+        "MsmKey" = "8:_344F3DC1BE074C98A0717DA3CCBD346B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -111,9 +119,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36A32A19E1B142AFA9311E9630720375"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3199FA33525C4984AE5DE9E22065DA2E"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\OneDrive\\Pictures\\SeoDianka.ico"
+            "SourcePath" = "8:..\\..\\..\\..\\OneDrive\\Desktop\\Grafika\\SeoDianka.ico"
             "TargetName" = "8:SeoDianka.ico"
             "Tag" = "8:"
             "Folder" = "8:_1DB563B4C9D645A88F3F7F83F7AD8F5D"
@@ -319,23 +327,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_10B0EDEF9F8741F2B70ABDA092C973E0"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_18A6CEBE7E5E48BEBB2000C26C0E0DA2"
             {
-            "Name" = "8:SeoDianka"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_344F3DC1BE074C98A0717DA3CCBD346B"
-            "Folder" = "8:_2871ABFB346B4F6F85464CB3037EC583"
-            "WorkingFolder" = "8:_1DB563B4C9D645A88F3F7F83F7AD8F5D"
-            "Icon" = "8:_36A32A19E1B142AFA9311E9630720375"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DB95AC76202C437490962866662FDE89"
-            {
-            "Name" = "8:SeoDianka"
+            "Name" = "8:Seo Dianka"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -344,7 +338,21 @@
             "Target" = "8:_344F3DC1BE074C98A0717DA3CCBD346B"
             "Folder" = "8:_922CCFE4144143B08F2E04FD623A58C5"
             "WorkingFolder" = "8:_1DB563B4C9D645A88F3F7F83F7AD8F5D"
-            "Icon" = "8:_36A32A19E1B142AFA9311E9630720375"
+            "Icon" = "8:_3199FA33525C4984AE5DE9E22065DA2E"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D668A26E3BC9469FB716DAD93D2AB1BE"
+            {
+            "Name" = "8:Seo Dianka"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_344F3DC1BE074C98A0717DA3CCBD346B"
+            "Folder" = "8:_2871ABFB346B4F6F85464CB3037EC583"
+            "WorkingFolder" = "8:_1DB563B4C9D645A88F3F7F83F7AD8F5D"
+            "Icon" = "8:_3199FA33525C4984AE5DE9E22065DA2E"
             "Feature" = "8:"
             }
         }
