@@ -7,3 +7,4 @@
 * Przydaje się tam, gdzie MS Word ignoruje słowa, bo takie istnieją (np. łózka - łóżka, tez - też, miedzy - między)
 ![image](https://user-images.githubusercontent.com/14290787/169388378-ccfc78cb-57c2-4bcf-9eb1-ee3fd368af26.png)
 
+[SeoDianka.zip](https://github.com/pawelel/SeoDiankaWF/files/8733914/SeoDianka.zip)
